@@ -1,0 +1,11 @@
+input(class='w-75' placeholder='Whats that ?')
+button(class='w-25 button primary-button')
+textarea(class='w-100' placeholder='Say something already')
+div(*ngIf='posts')
+  div(*ngFor='let post of posts' class='card')
+    div(class='card-body')
+      button(class='close-post-button') x
+      h2 {{post.name}}
+      div {{post.content}}
+      a(class='btn btn-primary') More
+      div(class='font-italic') Yesterday

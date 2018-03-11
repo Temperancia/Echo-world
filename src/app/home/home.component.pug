@@ -1,0 +1,16 @@
+div(class='row')
+  div(class='col-4')
+    img(class='w-100' src='/assets/img/profile.png')
+    div(class='p-4 mt-1 card')
+      div(class='card-body')
+        div **Presentation of me**
+        div Reputation XXX
+        div Followed by XXX
+        div Live at *region*/*country*
+  div(class='col-5')
+    app-feed
+  div(class='col-3 friend-list')
+      div(*ngFor='let friend of friends' class='text-center')
+        h2 {{friend.name}}
+        img(class='w-50' src='/assets/img/profile.png')
+        h5([style.background-color]="getReputation(friend)") {{friend.reputation}}
