@@ -1,11 +1,13 @@
-input(class='w-75' placeholder='Whats that ?' '[(ngModel)]'='currentPost.name')
+input(class='w-75' placeholder='Whats that ?' '[(ngModel)]'='currentPost.name' '(focus)'='selectTitle()')
 button(class='w-25 button primary-button' '(click)'='post()') Echo it !
-textarea(class='w-100' placeholder='Say something already' '[(ngModel)]'='currentPost.content')
+textarea(class='w-100' placeholder='Say something already' '[(ngModel)]'='currentPost.content' '(focus)'='selectContent()')
+div(class='w-100' style='background-color: white;')
+  span(*ngFor='let emoji of actualEmojis' '[innerHTML]'='emoji | emojis' '(click)'='addEmoji(emoji)')
 div(*ngIf='posts')
   div(*ngFor='let post of posts' class='card')
     div(class='card-body')
       button(class='close-post-button' '(click)'='close(post.id)') x
-      h2 {{post.name}}
-      div {{post.content}}
+      h2('[innerHTML]'='post.name | emojis')
+      div('[innerHTML]'='post.content | emojis')
       a(class='btn btn-primary') More
       div(class='font-italic') Yesterday

@@ -50,6 +50,7 @@
     "@nguniversal/express-engine": "^5.0.0-beta.5",
     "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
     "core-js": "^2.4.1",
+    "ng2-emoji": "^0.2.0",
     "pug-html-loader": "^1.1.5",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
