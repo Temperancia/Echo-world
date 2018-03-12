@@ -1,25 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../post.service';
 import { Post } from '../post';
+
 @Component({
   selector: 'app-feed',
   templateUrl: 'feed.component.pug',
   styleUrls: ['feed.component.scss']
 })
 export class FeedComponent implements OnInit {
-  postTitle: string;
-  postContent: string;
-  posts: Post[] = [
-    {id: 1, name: 'test', content: 'hello'},
-    {id: 2, name: 'test', content: 'hello'},
-    {id: 3, name: 'test', content: 'hello'},
-    {id: 4, name: 'test', content: 'hello'},
-  ];
-  constructor() { }
-
+  currentPost: Post;
+  posts: Post[];
+  constructor(private postService: PostService) {
+  }
   ngOnInit() {
+    this.currentPost = {
+      id: -1,
+      name: '',
+      content: ''
+    };
+    this.postService.getPosts()
+      .subscribe(posts => this.posts = posts);
   }
   post() {
-    this.posts.unshift(new Post(this.posts.length, this.postTitle, this.postContent));
+    console.log(this.currentPost.name);
+    this.postService.create(this.currentPost);
   }
   close(id) {
     for (let index = 0; index < this.posts.length; index++) {
