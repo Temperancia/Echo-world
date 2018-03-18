@@ -15,6 +15,7 @@ import { FeedComponent } from './feed/feed.component';
 import { FooterComponent } from './footer/footer.component';
 import { PostService } from './post.service';
 import { FriendService } from './friend.service';
+import { EmojisComponent } from './emojis/emojis.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FriendService } from './friend.service';
     FindHelpComponent,
     FeedComponent,
     FooterComponent,
+    EmojisComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),

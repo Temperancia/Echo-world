@@ -1,8 +1,11 @@
-input(class='w-75' placeholder='Whats that ?' '[(ngModel)]'='currentPost.name' '(focus)'='selectTitle()')
-button(class='w-25 button primary-button' '(click)'='post()') Echo it !
-textarea(class='w-100' placeholder='Say something already' '[(ngModel)]'='currentPost.content' '(focus)'='selectContent()')
-div(class='w-100' style='background-color: white;')
-  span(*ngFor='let emoji of actualEmojis' '[innerHTML]'='emoji | emojis' '(click)'='addEmoji(emoji)')
+doctype html
+div(class='feed')
+  input(class='w-75 form-control' placeholder='Whats that ?' '[(ngModel)]'='currentPost.name' '(focus)'='selectTitle()')
+  textarea(class='w-100 form-control' placeholder='Say something already' '[(ngModel)]'='currentPost.content' '(focus)'='selectContent()')
+  app-emojis(ref-emojis class='emojis', '(onEmoji)'="onEmoji($event)")
+  button(type="button" class='btn btn-primary show-emojis' '(click)'="emojis.show()") Emojis :O
+button(type='button' class='btn btn-primary' '(click)'='post()') Echo it !
+
 div(*ngIf='posts')
   div(*ngFor='let post of posts' class='card')
     div(class='card-body')
@@ -11,3 +14,5 @@ div(*ngIf='posts')
       div('[innerHTML]'='post.content | emojis')
       a(class='btn btn-primary') More
       div(class='font-italic') Yesterday
+      
+

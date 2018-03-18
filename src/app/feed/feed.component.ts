@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Ng2EmojiService} from 'ng2-emoji';
 import { PostService } from '../post.service';
 import { Post } from '../post';
 
@@ -11,16 +10,11 @@ import { Post } from '../post';
 export class FeedComponent implements OnInit {
   currentPost: Post;
   posts: Post[];
-  emojis: Array<string>;
-  actualEmojis: Array<string>;
   onTitle: boolean;
   onContent: boolean;
   
   constructor(private postService: PostService) {
-    this.emojis = this.actualEmojis = Ng2EmojiService.emojis;
-    for (let emoji = 0; emoji < this.emojis.length; emoji++) {
-      this.actualEmojis[emoji] = ':' + this.emojis[emoji] + ':';
-    }
+    
   }
   ngOnInit() {
     this.currentPost = {
@@ -39,7 +33,8 @@ export class FeedComponent implements OnInit {
     this.onTitle = false;
     this.onContent = true;
   }
-  addEmoji(emoji) {
+  onEmoji(emoji) {
+    console.log("ok");
     if (this.onTitle) {
       this.currentPost.name += emoji;
     } else if (this.onContent) {
