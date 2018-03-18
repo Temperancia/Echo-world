@@ -35,7 +35,7 @@ import { EmojisComponent } from './emojis/emojis.component';
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'my-profile', component: MyProfileComponent },
+      //{ path: 'my-profile', component: MyProfileComponent },
       { path: 'help', component: FindHelpComponent },
     ]),
     FormsModule,

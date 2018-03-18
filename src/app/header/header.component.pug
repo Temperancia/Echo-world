@@ -2,11 +2,11 @@ nav
   div(class='row align-items-center')
     div(class='col-1')
       a(routerLink='/home')
-        img(class='w-100' src='/assets/img/logo.png')
+        img(class='w-100', src='/assets/img/logo.png')
     div(class='col-1')
       a(routerLink='/home') Home
     div(class='col-1')
-      a(routerLink='/my-profile') My Profile
+      button(class='btn btn-primary' '(click)'='profile.show()') My Profile
     div(class='offset-2 col-2')
       input(placeholder='Search a group')
     div(class='offset-4 col-1')
