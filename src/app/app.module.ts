@@ -16,6 +16,8 @@ import { FooterComponent } from './footer/footer.component';
 import { PostService } from './post.service';
 import { FriendService } from './friend.service';
 import { EmojisComponent } from './emojis/emojis.component';
+import { HeaderService } from './header.service';
+import { PostBoxComponent } from './post-box/post-box.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { EmojisComponent } from './emojis/emojis.component';
     FeedComponent,
     FooterComponent,
     EmojisComponent,
+    PostBoxComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),
@@ -35,15 +38,14 @@ import { EmojisComponent } from './emojis/emojis.component';
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutComponent },
-      //{ path: 'my-profile', component: MyProfileComponent },
+      { path: 'my-profile', component: MyProfileComponent },
       { path: 'help', component: FindHelpComponent },
     ]),
     FormsModule,
     //TransferHttpCacheModule,
     Ng2EmojiModule.forRoot()
-
   ],
-  providers: [PostService, FriendService],
+  providers: [PostService, FriendService, HeaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

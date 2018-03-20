@@ -1,13 +1,31 @@
+doctype html
 nav
-  div(class='row align-items-center')
+  //div(class='row align-items-center')
     div(class='col-1')
       a(routerLink='/home')
         img(class='w-100', src='/assets/img/logo.png')
     div(class='col-1')
       a(routerLink='/home') Home
     div(class='col-1')
-      button(class='btn btn-primary' '(click)'='profile.show()') My Profile
-    div(class='offset-2 col-2')
+      button(class='btn btn-primary' '(click)'='showProfile()') My Profile
+    div(class='col-1')
+      button(class='btn btn-primary' '(click)'='showFriendList()') Friends
+    div(class='offset-1 col-2')
       input(placeholder='Search a group')
     div(class='offset-4 col-1')
       a(routerLink='/help') Help
+  div(class='row align-items-center')
+    div(class='col-1')
+      a(routerLink='/home')
+        img(class='w-100', src='/assets/img/logo.png')
+    div(class='col-1')
+      button(class='btn btn-primary', '(click)'='showPostBox()') Post
+      app-post-box(*ngIf='showPost')
+    div(class='col-3')
+      button(class='btn btn-primary d-block mx-auto') Trendy flux
+    div(class='col-2')
+      input(class='form-control', placeholder='Search a group')
+    div(class='col-4')
+      button(class='btn btn-primary d-block mx-auto') Friends flux
+    div(class='col-1')
+      a(routerLink='/my-profile') Me

@@ -5,13 +5,13 @@ import { Friend } from './friend';
 
 @Injectable()
 export class FriendService {
-  friends: Friend[] = [
+  private friends: Friend[] = [
     {name: 'Nadir', reputation: 23},
     {name: 'Bruno', reputation: 9000},
     {name: 'James', reputation: -42}
   ];
   constructor() { }
-  getFriends(): Observable<Friend[]> {
+  public getFriends(): Observable<Friend[]> {
     return of(this.friends);
   }
 }

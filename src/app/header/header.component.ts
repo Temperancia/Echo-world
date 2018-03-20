@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AppComponent } from '../app.component';
+import {HeaderService} from '../header.service';
 
 @Component({
   selector: 'app-header',
@@ -8,11 +8,12 @@ import { AppComponent } from '../app.component';
 })
 export class HeaderComponent implements OnInit {
   @Input() app: string;
-  constructor() {
+  private showPost = false;
+  constructor(private headerService: HeaderService) {
   }
-
   ngOnInit() {
   }
-  public showProfile() {
+  public showPostBox(): void {
+    this.showPost = !this.showPost;
   }
 }
