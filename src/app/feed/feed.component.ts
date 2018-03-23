@@ -9,7 +9,6 @@ import { Post } from '../post';
 })
 export class FeedComponent implements OnInit {
   private posts: Post[];
-  
   constructor(private postService: PostService) {
     
   }
@@ -18,10 +17,12 @@ export class FeedComponent implements OnInit {
       .subscribe(posts => this.posts = posts);
   }
   public close(id) {
+    /*
     for (let index = 0; index < this.posts.length; index++) {
       if (this.posts[index].id === id) {
         this.posts.splice(index, 1);
       }
     }
+    */
   }
 }
